@@ -4,7 +4,7 @@ import * as exec from '@actions/exec';
 
 async function run() {
   try {
-    const name = "linuxdeployqt-continous-x86_64.AppImage";
+    const name = "linuxdeployqt-continuous-x86_64.AppImage";
     const targetdir = (core.getInput("dir") || process.env.RUNNER_WORKSPACE) + "/bin";
     const executable = targetdir + '/' + name;
     const target = "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/" + name;

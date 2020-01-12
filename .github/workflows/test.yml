@@ -33,7 +33,7 @@ jobs:
           make -j2
           mkdir -p target/usr/bin
           cp QtWidgetsApplication target/usr/bin/
-          linuxdeployqt-continous-x86_64.AppImage target/usr/bin/QtWidgetsApplication
+          linuxdeployqt-continuous-x86_64.AppImage target/usr/bin/QtWidgetsApplication
           ldd target/usr/bin/QtWidgetsApplication
           LD_DEBUG=libs target/usr/bin/QtWidgetsApplication &
           sleep 5
