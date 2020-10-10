@@ -29,3 +29,15 @@ SOURCES += main.cpp\
 HEADERS  += mainwindow.h
 
 FORMS    += mainwindow.ui
+
+PREFIX = /usr
+
+target.path = $$PREFIX/bin
+desktop.path = $$PREFIX/share/applications/
+desktop.files += QtWidgetApplication.desktop
+icon.path = $$PREFIX/share/icons/hicolor/256x256/apps
+icon.files += QtWidgetApplication.png
+
+INSTALLS += icon
+INSTALLS += desktop
+INSTALLS += target

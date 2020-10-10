@@ -25,7 +25,7 @@ jobs:
       - name: Configure and build test project
         run: |
           cd tests/QtWidgetsApplication/
-          qmake QtWidgetsApplication.pro PREFIX=/usr
+          qmake QtWidgetsApplication.pro
           make -j2
           mkdir -p appdir/usr/bin
           make INSTALL_ROOT=appdir -j2 install ; find appdir/
@@ -33,6 +33,6 @@ jobs:
       - name: Run LinuxDeployQt
         run: |
           cd tests/QtWidgetsApplication/
-          linuxdeployqt-continuous-x86_64.AppImage appdir/usr/bin/QtWidgetsApplication -appimage
+          linuxdeployqt-continuous-x86_64.AppImage appdir/usr/share/applications/QtWidgetsApplication.desktop -appimage
           echo "SUCCESS"
         shell: bash
