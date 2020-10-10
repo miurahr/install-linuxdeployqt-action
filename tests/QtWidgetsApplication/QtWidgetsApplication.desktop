@@ -2,6 +2,6 @@
 Type=Application
 Name=Qt Widget App
 Comment=Sample Qt Application
-Exec=QtWidgetApplication
-Icon=QtWidgetApplication
+Exec=QtWidgetsApplication
+Icon=QtWidgetsApplication
 Categories=Office;
