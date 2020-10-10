@@ -7,35 +7,32 @@ jobs:
     runs-on: ubuntu-16.04
     steps:
       - uses: actions/checkout@v1
-
       - uses: actions/setup-node@v1
         with:
           node-version: '10.x'
-
       - name: Install Qt
         uses: jurplel/install-qt-action@v2
-
       - name: "npm install"
         run: npm install
-
       - name: "npm run build"
         run: npm run build
-
       - name: Install LinuxDeployQt
         uses: ./
-
-      - name: Configure test project
+      - name: Install dependency
+        run: |
+          sudo apt install -y libxkbcommon-x11-0
+        shell: bash
+      - name: Configure and build test project
         run: |
           cd tests/QtWidgetsApplication/
           mkdir build
           cd build/
           qmake ../QtWidgetsApplication.pro
           make -j2
-          mkdir -p target/usr/bin
-          cp QtWidgetsApplication target/usr/bin/
-          linuxdeployqt-continuous-x86_64.AppImage target/usr/bin/QtWidgetsApplication
-          ldd target/usr/bin/QtWidgetsApplication
-          LD_DEBUG=libs target/usr/bin/QtWidgetsApplication &
-          sleep 5
-          killall QtWidgetsApplication && echo "SUCCESS"
+          make INSTALL_ROOT=appdir -j2 install ; find appdir/
+        shell: bash
+      - name: Run LinuxDeployQt
+          cd tests/QtWidgetsApplication/build/
+          linuxdeployqt-continuous-x86_64.AppImage appdir/usr/bin/QtWidgetsApplication -appimage
+          echo "SUCCESS"
         shell: bash
