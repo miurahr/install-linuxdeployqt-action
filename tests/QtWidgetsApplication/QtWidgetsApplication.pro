@@ -34,9 +34,9 @@ PREFIX = /usr
 
 target.path = $$PREFIX/bin
 desktop.path = $$PREFIX/share/applications/
-desktop.files += QtWidgetApplication.desktop
+desktop.files += QtWidgetsApplication.desktop
 icon.path = $$PREFIX/share/icons/hicolor/256x256/apps
-icon.files += QtWidgetApplication.png
+icon.files += QtWidgetsApplication.png
 
 INSTALLS += icon
 INSTALLS += desktop
