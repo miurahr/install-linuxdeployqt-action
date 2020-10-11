@@ -1,16 +1,18 @@
 # `install-linuxdeployqt-action`
 
-Installing LinuxDeployQt on Github Actions workflows manually is the worst.
+An action script to help installing LinuxDeployQt on Github Actions workflows.
+See linuxdeployqt utility details on [LinuxDeployQt project](https://github.com/probonopd/linuxdeployqt) home.
 
-See linuxdeploy utility details on [LinuxDeployQt project](https://github.com/probonopd/linuxdeployqt) home.
-
-You know what's easier than dealing with that? Just using this:
 ```yml
     - name: Install LinuxDeployQt
       uses: miurahr/install-linuxdeployqt-action@v0
 ```
 
-All done.
+You can call it like as follows:
+
+```bash
+linuxdeployqt-continuous-x86_64.AppImage appdir/usr/share/applications/apps.desktop
+```
 
 ## More info
 
