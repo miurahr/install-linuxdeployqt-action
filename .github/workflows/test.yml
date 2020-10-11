@@ -24,7 +24,8 @@ jobs:
         shell: bash
       - name: Configure and build test project
         run: |
-          cd tests/QtWidgetsApplication/
+          tar xJf QtWidgetsApplication.tar.xz
+          cd QtWidgetsApplication/
           qmake QtWidgetsApplication.pro
           make -j2
           mkdir -p appdir/usr/bin
@@ -32,7 +33,7 @@ jobs:
         shell: bash
       - name: Run LinuxDeployQt
         run: |
-          cd tests/QtWidgetsApplication/
+          cd QtWidgetsApplication/
           linuxdeployqt-continuous-x86_64.AppImage appdir/usr/share/applications/QtWidgetsApplication.desktop -appimage
           echo "SUCCESS"
         shell: bash

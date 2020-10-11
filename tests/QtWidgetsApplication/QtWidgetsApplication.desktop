@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Qt Widget App
-Comment=Sample Qt Application
-Exec=QtWidgetsApplication
-Icon=QtWidgetsApplication
-Categories=Office;
